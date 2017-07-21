@@ -29,18 +29,18 @@ RUN sudo apt-get install -y python-dev python-tk python-numpy python3-dev python
 
 # 3. INSTALL THE LIBRARY (YOU CAN CHANGE '3.2.0' FOR THE LAST STABLE VERSION)
 
-sudo apt-get install -y unzip wget
-wget https://github.com/opencv/opencv/archive/3.2.0.zip
-unzip 3.2.0.zip
-rm 3.2.0.zip
-mv opencv-3.2.0 OpenCV
-cd OpenCV
-mkdir build
-cd build
-cmake -DWITH_QT=ON -DWITH_OPENGL=ON -DFORCE_VTK=ON -DWITH_TBB=ON -DWITH_GDAL=ON -DWITH_XINE=ON -DBUILD_EXAMPLES=ON -DENABLE_PRECOMPILED_HEADERS=OFF ..
-make -j4
-sudo make install
-sudo ldconfig
+RUN sudo apt-get install -y unzip wget
+RUN wget https://github.com/opencv/opencv/archive/3.2.0.zip
+RUN unzip 3.2.0.zip
+RUN rm 3.2.0.zip
+RUN mv opencv-3.2.0 OpenCV
+RUN cd OpenCV
+RUN mkdir build
+RUN cd build
+RUN cmake -DWITH_QT=ON -DWITH_OPENGL=ON -DFORCE_VTK=ON -DWITH_TBB=ON -DWITH_GDAL=ON -DWITH_XINE=ON -DBUILD_EXAMPLES=ON -DENABLE_PRECOMPILED_HEADERS=OFF ..
+RUN make -j4
+RUN sudo make install
+RUN sudo ldconfig
 
 
 
